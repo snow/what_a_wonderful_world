@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: periodic_incomes
+#
+#  id                 :integer          not null, primary key
+#  profile_id         :integer
+#  name               :string(191)
+#  period             :integer
+#  starts_at          :datetime
+#  ends_at            :datetime
+#  period_amount_cent :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profile: one
+  period: 1
+  starts_at: 2017-04-22 19:54:20
+  ends_at: 2017-04-22 19:54:20
+  period_amount_cent: 1
+
+two:
+  profile: two
+  period: 1
+  starts_at: 2017-04-22 19:54:20
+  ends_at: 2017-04-22 19:54:20
+  period_amount_cent: 1
