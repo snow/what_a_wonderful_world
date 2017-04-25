@@ -14,12 +14,13 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password:
-  host: localhost
+  password: 123123
+  host: db
+  database: waww
 
 development:
   <<: *default
-  database: waww_development
+  # database: waww_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: waww_production
-  username: waww
-  password: <%= ENV['WAWW_DATABASE_PASSWORD'] %>
+  # database: waww_production
+  # username: waww
+  # password: <%= ENV['WAWW_DATABASE_PASSWORD'] %>
