@@ -22,13 +22,26 @@ class Income < ApplicationRecord
   enum category: [:one_time, :periodic]
 
   after_initialize :defaults
+  # TODO: should do these in controller
+  before_save do
+    self.date = date.beginning_of_month
+  end
 
   validates :category, :amount_cent, :date, presence: true
   validates :periodic_income, presence: true, if: :periodic?
 
+  def amount
+    amount_cent / 100 if amount_cent
+  end
+
+  def amount=(other_amount)
+    self.amount_cent = other_amount.to_i * 100
+  end
+
   private
 
   def defaults
+    self.category = :one_time if has_attribute?(:category) && category.nil?
     self.category = :one_time if has_attribute?(:category) && category.nil?
   end
 end

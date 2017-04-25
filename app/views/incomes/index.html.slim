@@ -1,0 +1,25 @@
+h1 Listing incomes
+
+table
+  thead
+    tr
+      th Name
+      th Amount
+      th Date
+      th
+      th
+      th
+
+  tbody
+    - @incomes.each do |income|
+      tr
+        td = income.name
+        td = income.amount
+        td = income.date
+        td = link_to 'Show', income
+        td = link_to 'Edit', edit_income_path(income)
+        td = link_to 'Destroy', income, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Income', new_income_path

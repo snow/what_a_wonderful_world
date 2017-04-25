@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @income.name
+p
+  strong Amount:
+  = @income.amount
+p
+  strong Date:
+  = @income.date
+
+= link_to 'Edit', edit_income_path(@income)
+'  |
+= link_to 'Back', incomes_path

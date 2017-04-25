@@ -1,0 +1,29 @@
+h1 Listing periodic_incomes
+
+table
+  thead
+    tr
+      th Name
+      th Period
+      th Starts at
+      th Ends at
+      th Period amount
+      th
+      th
+      th
+
+  tbody
+    - @periodic_incomes.each do |periodic_income|
+      tr
+        td = periodic_income.name
+        td = periodic_income.period
+        td = periodic_income.starts_at
+        td = periodic_income.ends_at
+        td = periodic_income.period_amount
+        td = link_to 'Show', periodic_income
+        td = link_to 'Edit', edit_periodic_income_path(periodic_income)
+        td = link_to 'Destroy', periodic_income, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Periodic income', new_periodic_income_path

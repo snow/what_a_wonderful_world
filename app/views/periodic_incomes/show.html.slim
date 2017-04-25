@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @periodic_income.name
+p
+  strong Period:
+  = @periodic_income.period
+p
+  strong Starts at:
+  = @periodic_income.starts_at
+p
+  strong Ends at:
+  = @periodic_income.ends_at
+p
+  strong Period amount:
+  = @periodic_income.period_amount
+
+= link_to 'Edit', edit_periodic_income_path(@periodic_income)
+'  |
+= link_to 'Back', periodic_incomes_path

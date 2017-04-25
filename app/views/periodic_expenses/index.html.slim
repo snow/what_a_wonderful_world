@@ -1,0 +1,29 @@
+h1 Listing periodic_expenses
+
+table
+  thead
+    tr
+      th Name
+      th Period
+      th Starts at
+      th Ends at
+      th Period amount
+      th
+      th
+      th
+
+  tbody
+    - @periodic_expenses.each do |periodic_expense|
+      tr
+        td = periodic_expense.name
+        td = periodic_expense.period
+        td = periodic_expense.starts_at
+        td = periodic_expense.ends_at
+        td = periodic_expense.period_amount
+        td = link_to 'Show', periodic_expense
+        td = link_to 'Edit', edit_periodic_expense_path(periodic_expense)
+        td = link_to 'Destroy', periodic_expense, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Periodic expense', new_periodic_expense_path

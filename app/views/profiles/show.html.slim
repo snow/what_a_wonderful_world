@@ -1,0 +1,95 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @profile.name
+
+= link_to 'Edit', edit_profile_path(@profile)
+'  |
+= link_to 'Back', profiles_path
+
+p = link_to 'Monthly Stats', profile_monthly_stats_path(@profile)
+
+h2 Incomes
+p = link_to 'New Income', new_profile_income_path(@profile)
+table
+  thead
+    tr
+      th Name
+      th date
+      th amount
+      th
+      th
+  tbody
+    - @profile.incomes.one_time.each do |income|
+      tr
+        td = income.name
+        td = income.date.strftime '%Y-%m'
+        td = income.amount
+        td = link_to 'Edit', edit_income_path(income)
+        td = link_to 'Destroy', income, data: { confirm: 'Are you sure?' }, method: :delete
+        
+h2 Periodic Incomes
+p = link_to 'New Periodic Income', new_profile_periodic_income_path(@profile)
+table
+  thead
+    tr
+      th Name
+      th period
+      th amount
+      th starts_at
+      th ends_at
+      th
+      th
+  tbody
+    - @profile.periodic_incomes.each do |periodic_income|
+      tr
+        td = periodic_income.name
+        td = periodic_income.period
+        td = periodic_income.period_amount
+        td = periodic_income.starts_at.strftime '%Y-%m'
+        td = periodic_income.ends_at.strftime '%Y-%m'
+        td = link_to 'Edit', edit_periodic_income_path(periodic_income)
+        td = link_to 'Destroy', periodic_income, data: { confirm: 'Are you sure?' }, method: :delete
+  
+h2 Expenses
+p = link_to 'New Expense', new_profile_expense_path(@profile)
+table
+  thead
+    tr
+      th Name
+      th date
+      th amount
+      th
+      th
+  tbody
+    - @profile.expenses.one_time.each do |expense|
+      tr
+        td = expense.name
+        td = expense.date.strftime '%Y-%m'
+        td = expense.amount 
+        td = link_to 'Edit', edit_expense_path(expense)
+        td = link_to 'Destroy', expense, data: { confirm: 'Are you sure?' }, method: :delete
+        
+h2 Periodic Expenses
+p = link_to 'New Periodic Expense', new_profile_periodic_expense_path(@profile)
+table
+  thead
+    tr
+      th Name
+      th period
+      th amount
+      th starts_at
+      th ends_at
+      th
+      th
+  tbody
+    - @profile.periodic_expenses.each do |periodic_expense|
+      tr
+        td = periodic_expense.name
+        td = periodic_expense.period
+        td = periodic_expense.period_amount
+        td = periodic_expense.starts_at.strftime '%Y-%m'
+        td = periodic_expense.ends_at.strftime '%Y-%m'
+        td = link_to 'Edit', edit_periodic_expense_path(periodic_expense)
+        td = link_to 'Destroy', periodic_expense, data: { confirm: 'Are you sure?' }, method: :delete

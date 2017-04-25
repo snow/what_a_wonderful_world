@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @periodic_expense.name
+p
+  strong Period:
+  = @periodic_expense.period
+p
+  strong Starts at:
+  = @periodic_expense.starts_at
+p
+  strong Ends at:
+  = @periodic_expense.ends_at
+p
+  strong Period amount:
+  = @periodic_expense.period_amount
+
+= link_to 'Edit', edit_periodic_expense_path(@periodic_expense)
+'  |
+= link_to 'Back', periodic_expenses_path

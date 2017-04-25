@@ -1,0 +1,2 @@
+module PeriodicIncomesHelper
+end

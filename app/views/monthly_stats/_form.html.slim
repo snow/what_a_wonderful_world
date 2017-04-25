@@ -1,0 +1,9 @@
+= form_for @monthly_stat do |f|
+  - if @monthly_stat.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@monthly_stat.errors.count, "error")} prohibited this monthly_stat from being saved:"
+      ul
+        - @monthly_stat.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit

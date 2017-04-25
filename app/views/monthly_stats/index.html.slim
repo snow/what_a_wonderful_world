@@ -1,0 +1,28 @@
+h1 Listing monthly_stats
+
+div 
+  = link_to '< back', profile_path(@profile)
+  ' |
+  = link_to 'Regenerate', regenerate_profile_monthly_stats_path(@profile), method: :post
+
+table
+  thead
+    tr
+      th date
+      th balance
+      th incomes
+      th expenses
+
+  tbody
+    - @monthly_stats.each do |stat|
+      tr
+        td = stat.date.strftime '%Y-%m'
+        td = stat.balance_cent / 100
+        td 
+          - stat.incomes.each do |income| 
+            div = "#{income.name}: #{income.amount_cent / 100}" 
+        td 
+          - stat.expenses.each do |expense| 
+            div = "#{expense.name}: #{expense.amount_cent / 100}" 
+
+br
